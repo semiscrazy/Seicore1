@@ -15,6 +15,9 @@ DATA_DIR=/var/lib/seicore
 
 [[ $EUID -eq 0 ]] || { echo "Run with sudo." >&2; exit 1; }
 export DEBIAN_FRONTEND=noninteractive
+export HOME=${HOME:-/root}
+# On first boot, Ubuntu's automatic updates may hold the package lock; wait for it.
+apt-get() { command apt-get -o DPkg::Lock::Timeout=900 "$@"; }
 step() { echo -e "\n==> $*"; }
 
 step "Installing system packages"
