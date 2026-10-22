@@ -42,6 +42,8 @@ docker build -t seicore .
 docker run -p 3001:3001 -v seicore-data:/data -e COOKIE_SECURE=true seicore
 ```
 
+**Free hosting:** see [deploy/ORACLE.md](deploy/ORACLE.md) for a step-by-step guide (Oracle Cloud Always Free + DuckDNS + automatic HTTPS) and a one-command setup script.
+
 Tests: `npm test`. Type checks: `npm run typecheck`.
 
 ### Configuration (environment variables)
